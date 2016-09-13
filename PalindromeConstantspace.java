@@ -5,6 +5,10 @@
 	Logic : use a fast and slow pointer to get the center of the list, then reverse the second list and compare two sublists. 
 			The time is O(n) and space is O(1).
 
+			
+	1) Get center
+	2) Reverse second half of linkedlist
+	3) compare two sublists
 */
 
 public boolean isPalindrome(ListNode head) 
@@ -19,6 +23,8 @@ public boolean isPalindrome(ListNode head)
  
     while(fast.next!=null && fast.next.next!=null)
 	{
+		// above condition works well for both odd and even linkedlist sizes
+		
         fast = fast.next.next;
         slow = slow.next;
     }
@@ -26,10 +32,10 @@ public boolean isPalindrome(ListNode head)
     ListNode secondHead = slow.next;
     slow.next = null;
  
+ 
     //reverse second part of the list
     ListNode p1 = secondHead;
-    ListNode p2 = p1.next;
- 
+    ListNode p2 = p1.next; 
     while(p1!=null && p2!=null)
 	{
         ListNode temp = p2.next;
@@ -37,8 +43,8 @@ public boolean isPalindrome(ListNode head)
         p1 = p2;
         p2 = temp;
     }
- 
     secondHead.next = null;
+ 
  
     //compare two sublists now
     ListNode p = (p2==null?p1:p2);
