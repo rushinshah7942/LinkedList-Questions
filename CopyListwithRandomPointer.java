@@ -6,7 +6,7 @@ Return a deep copy of the list.
 */
 
 // Pro: Does not modify the input linkedlist
-// Con: uses extra data strcture HashMap
+// Con: uses extra data strcture HashMap  - 4 ms
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
@@ -57,8 +57,8 @@ public class Solution {
 }
 
 
-// Pro: Below solution does not use any data structrue like HashMap 
-// con: Modifies given linkedlist and then restore it, which is not a good and practica approach
+// Pro: Below solution does not use any data structrue like HashMap  - faster 2 ms
+// con: Modifies given linkedlist and then restore it, which is not a good and practical approach
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
