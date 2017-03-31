@@ -26,15 +26,14 @@ public class Solution
             slow = slow.next;
             if(slow == fast)
             {
-				// cycle exists
-                
-				ListNode slow2 = head; 
-                while (slow2 != slow)
+				// cycle exists                
+				ListNode slow = head; 
+                while (slow != fast)
                 {
                     slow = slow.next;
-                    slow2 = slow2.next;
+                    fast = fast.next;
                 }
-                return slow;
+                return fast;
             }
         }
         return null;

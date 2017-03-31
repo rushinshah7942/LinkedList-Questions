@@ -7,12 +7,17 @@ Return a deep copy of the list.
 
 // Pro: Does not modify the input linkedlist
 // Con: uses extra data strcture HashMap  - 4 ms
+// Time - O(n)
+// Space - O(n)
+
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
  *     int label;
  *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
+ *     RandomListNode(int x) { 
+		    this.label = x; 
+	   }
  * };
  */
 public class Solution {
@@ -21,14 +26,18 @@ public class Solution {
             return head;
         
         HashMap<RandomListNode, RandomListNode> map = new HashMap<>();
-        RandomListNode newHead = new RandomListNode(head.label);
-        RandomListNode p = head;
+        
+		RandomListNode newHead = new RandomListNode(head.label);
+        
+		RandomListNode p = head;
         RandomListNode q = newHead;
         
         map.put(head,newHead);
         
         p = p.next;
+		
         // store node and it's copy into hashamp
+		// for value node in the Hashmap, store its next value in 1st pass
         while(p!=null)
         {
             RandomListNode temp = new RandomListNode(p.label);
@@ -37,7 +46,8 @@ public class Solution {
             q = temp;
             p = p.next;
         }
-        // now start again and assign random pointers
+        
+		// now start again and assign random pointers
         p = head;
         q = newHead;
         
@@ -52,6 +62,7 @@ public class Solution {
             p = p.next;
             q = q.next;
         }       
+		
         return newHead;
     }
 }
@@ -59,12 +70,17 @@ public class Solution {
 
 // Pro: Below solution does not use any data structrue like HashMap  - faster 2 ms
 // con: Modifies given linkedlist and then restore it, which is not a good and practical approach
+// Time: O(n)
+// Space: O(1)
+
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
  *     int label;
  *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; };
+ *     RandomListNode(int x) { 
+			this.label = x; 
+	   };
  * };
  */
 public RandomListNode copyRandomList(RandomListNode head) {

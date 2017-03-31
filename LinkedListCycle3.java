@@ -31,7 +31,7 @@ public class Solution
 		
 		if(slow == fast){
 			slow = head; // start slow with head again
-			while (slow != fast.next) { 
+			while (slow != fast.next) {  // imp step, not while(slow != fast)
                 slow = slow.next;
                 fast = fast.next;
             }
